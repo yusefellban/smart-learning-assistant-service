@@ -33,6 +33,11 @@ Smart Learning Assistant Service is an AI-driven Q&A microservice that uses adva
 - **Microservices Ready:** Integrates with Spring Cloud Eureka and OpenFeign.
 - **API Documentation:** Automatically generated API docs using SpringDoc (Swagger UI).
 
+## APIs
+![Project Screenshot](https://raw.githubusercontent.com/yusefellban/smart-learning-assistant-service/refs/heads/main/images/Screenshot%202025-03-18%20051254.png)
+
+
+
 ## Technologies
 
 - **Java 17**
