@@ -33,8 +33,6 @@ Smart Learning Assistant Service is an AI-driven Q&A microservice that uses adva
 - **Microservices Ready:** Integrates with Spring Cloud Eureka and OpenFeign.
 - **API Documentation:** Automatically generated API docs using SpringDoc (Swagger UI).
 
-## APIs
-![Project Screenshot](https://raw.githubusercontent.com/yusefellban/smart-learning-assistant-service/refs/heads/main/images/Screenshot%202025-03-18%20051254.png)
 
 
 
@@ -58,6 +56,10 @@ The project follows Clean Architecture principles:
 - **Infrastructure Layer:** Contains database entities, repository implementations, and external API client configurations.
 - **Presentation Layer:** Contains REST controllers to handle incoming HTTP requests.
 
+
+## IOC contanier
+![Project Screenshot](https://raw.githubusercontent.com/yusefellban/smart-learning-assistant-service/refs/heads/main/images/Screenshot%202025-03-18%20210146.png)
+
 ## Getting Started
 
 ### Prerequisites
@@ -71,7 +73,7 @@ The project follows Clean Architecture principles:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/smart-learning-assistant-service.git
+   git clone https://github.com/yusefellban  /smart-learning-assistant-service.git
    cd smart-learning-assistant-service
    ```
 
@@ -97,6 +99,9 @@ Start the application using:
 mvn spring-boot:run
 ```
 The service will start on the default port (e.g., 8080). You can access it at `http://localhost:8080`.
+
+## APIs
+![Project Screenshot](https://raw.githubusercontent.com/yusefellban/smart-learning-assistant-service/refs/heads/main/images/Screenshot%202025-03-18%20051254.png)
 
 ## API Documentation
 
