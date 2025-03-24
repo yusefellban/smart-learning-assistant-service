@@ -4,6 +4,7 @@ package com.MAHD.smart_learning_assistant_service.infrastructure.persistence.ent
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Entity
 @Table(name = "user_feedback")
 @Getter
@@ -26,5 +27,9 @@ public class UserFeedbackEntity {
         this.userId = userId;
         this.feedback = feedback;
     }
+
+
+
+
 }
 

@@ -17,20 +17,8 @@ public class ChatHistory {
     private String userId; // Keeping it as String for UUID compatibility
     private String prompt;
     private String response;
-    private LocalDateTime timestamp = LocalDateTime.now();
+    private LocalDateTime timestamp ;
 
-    public ChatHistory(Long id, String userId, String prompt, String response) {
-        this.id = id;
-        this.userId = userId;
-        this.prompt = prompt;
-        this.response = response;
-    }
-
-    public ChatHistory(String userId, String prompt, String response) {
-        this.userId = userId;
-        this.prompt = prompt;
-        this.response = response;
-    }
 }
 
 

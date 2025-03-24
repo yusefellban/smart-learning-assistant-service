@@ -8,5 +8,5 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public class AskResponse {
-    private String prompt;
+    private String response;
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,9 +16,7 @@ public class UserFeedback {
     private String userId;
     private String feedback;
 
-    public UserFeedback(String userId, String feedback) {
-        this.userId = userId;
-        this.feedback = feedback;
-    }
+
+
 }
 

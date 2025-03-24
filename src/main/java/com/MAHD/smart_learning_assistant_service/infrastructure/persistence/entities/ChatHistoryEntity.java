@@ -1,6 +1,5 @@
 package com.MAHD.smart_learning_assistant_service.infrastructure.persistence.entities;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,8 +27,8 @@ public class ChatHistoryEntity {
     @Column(columnDefinition = "TEXT" ,nullable = false)
     private String response;
 
-    @Column(nullable = false)
-    private LocalDateTime timestamp = LocalDateTime.now();
+    @Column(nullable = false,updatable = false)
+    private LocalDateTime timestamp ;
 
     public ChatHistoryEntity(String userId, String prompt, String response) {
         this.userId = userId;
@@ -37,12 +36,13 @@ public class ChatHistoryEntity {
         this.response = response;
     }
 
-    public ChatHistoryEntity(Long id, String userId, String prompt, String response) {
-        this.id = id;
-        this.userId = userId;
-        this.prompt = prompt;
-        this.response = response;
+    @PrePersist
+    protected void onCreate() {
+        this.timestamp = LocalDateTime.now();  // Auto-set timestamp on insert
     }
+
+
+
 }
 
 
