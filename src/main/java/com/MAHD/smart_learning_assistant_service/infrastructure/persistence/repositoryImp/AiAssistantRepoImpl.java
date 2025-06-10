@@ -18,6 +18,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -191,6 +192,7 @@ public class AiAssistantRepoImpl implements AiAssistantRepo {
                     throw new UserNotFoundException("!User not found: " + userId);
                 });
     }
+
 
     @Override
     public int deleteOldChats(LocalDateTime expiryTime) {

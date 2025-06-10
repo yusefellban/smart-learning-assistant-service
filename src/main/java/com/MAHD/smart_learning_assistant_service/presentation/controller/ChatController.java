@@ -7,6 +7,7 @@ import com.MAHD.smart_learning_assistant_service.application.services.FeedBackSe
 import com.MAHD.smart_learning_assistant_service.application.services.ChatService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -17,15 +18,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/ai-assistant")
 @Tag(name = "Chat Bot", description = "Smart Learning Assistant Service")
+@RequiredArgsConstructor
 public class ChatController {
 
     private final ChatService chatService;
     private final FeedBackService feedBackService;
 
-    public ChatController(ChatService chatService, FeedBackService feedBackService) {
-        this.chatService = chatService;
-        this.feedBackService = feedBackService;
-    }
 
     @PostMapping("/ask")
     @Operation(summary = "Ask AI assistant", description = "Sends a user query to the chatbot and returns a response.")
@@ -48,14 +46,14 @@ public class ChatController {
     }
 
 
-    @PutMapping("/user/feedback")
+    @PutMapping("/feedback/submit")
     @Operation(summary = "Submit User Feedback", description = "Submits user feedback for a chatbot response.")
     public ResponseEntity<String> submitFeedback(@RequestParam String userId, @RequestParam String feedback) {
         return feedBackService.submitFeedback(userId, feedback);
 
     }
 
-    @GetMapping("/user/feedback/{userId}")
+    @GetMapping("/feedback/user/{userId}")
     @Operation(summary = "Get User Feedback", description = "Retrieves feedback submitted by a specific user.")
     public ResponseEntity<FeedbackResponse> getFeedback(@PathVariable String userId) {
         return feedBackService.getFeedback(userId);
@@ -63,11 +61,10 @@ public class ChatController {
     }
 
     /// not use case in the system
-    @GetMapping("/users/feedback/all")
+    @GetMapping("/feedback/all")
     @Operation(summary = "Get All Feedback For All Users", description = "Fetches all user feedback submitted to the system.")
-    public List<FeedbackResponse> getAllFeedbacks() {
-        return feedBackService.getAllFeedbacks();
+    public ResponseEntity<List<FeedbackResponse>> getAllFeedbacks() {
+        return ResponseEntity.ok(feedBackService.getAllFeedbacks());
     }
-
 
 }

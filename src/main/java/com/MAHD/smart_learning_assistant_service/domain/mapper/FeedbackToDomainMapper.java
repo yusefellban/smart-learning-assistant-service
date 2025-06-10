@@ -2,22 +2,23 @@ package com.MAHD.smart_learning_assistant_service.domain.mapper;
 
 import com.MAHD.smart_learning_assistant_service.domain.model.UserFeedback;
 import com.MAHD.smart_learning_assistant_service.infrastructure.persistence.entities.UserFeedbackEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FeedbackToDomainMapper {
+public class FeedbackToDomainMapper extends UserFeedback {
     /**
      * Converts a {@link UserFeedbackEntity} to a {@link UserFeedback} domain object.
      *
      * @param feedbackEntity the entity to convert
      * @return the converted domain object
      */
-    public static UserFeedback toDomain(UserFeedbackEntity feedbackEntity) {
+    public UserFeedback toDomain( ) {
         return new UserFeedback(
-                feedbackEntity.getId(),
-                feedbackEntity.getUserId(),
-                feedbackEntity.getFeedback()
+                this.getId(),
+                this.getUserId(),
+                this.getFeedback()
         );
     }
 

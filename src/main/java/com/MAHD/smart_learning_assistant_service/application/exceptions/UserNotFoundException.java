@@ -8,7 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class UserNotFoundException extends ResponseStatusException {
-    private static final Logger logger = LoggerFactory.getLogger(AgentNotRunningException.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserNotFoundException.class);
 
     public UserNotFoundException(String message) {
         super(HttpStatus.NOT_FOUND, message);
