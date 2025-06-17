@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: smart_learning_assistant
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123!
+    ports:
+      - "5440:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: spring_app
+    depends_on:
+      - postgres
+    ports:
+      - "5005:5005"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/smart_learning_assistant
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123!
+      SPRING_AI_OPENAI_API_KEY: ${OPENAI_API_KEY}
+    env_file:
+        - .env
+volumes:
+  postgres_data:

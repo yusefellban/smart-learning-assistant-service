@@ -28,6 +28,7 @@ public class ChatController {
     @PostMapping("/ask")
     @Operation(summary = "Ask AI assistant", description = "Sends a user query to the chatbot and returns a response.")
     public ResponseEntity<AskResponse> ask(@RequestParam String userId, @RequestParam String prompt) {
+        System.out.println("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwhiiiii it is w");
         return chatService.ask(userId, prompt);
     }
 
